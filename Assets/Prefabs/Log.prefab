@@ -262,8 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd922e8010bff53408596cf4f69edd09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgSprite_: {fileID: 21300000, guid: c5741b62ca5774e4dbb5efdc90af2ffe, type: 3}
-  name_: Log
+  itemUI: {fileID: 11400000, guid: c42bebf0dc142bb4f9621004fb863b91, type: 2}
   message: {fileID: 6506995280023427862}
 --- !u!33 &470313888840253495
 MeshFilter:

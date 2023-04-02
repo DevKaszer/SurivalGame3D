@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SurvivalGame
 {
     public class GameManager : MonoBehaviour
     {
-        public Inventory inventory { get; private set; }
+        public InventoryManager inventory;
         public static GameManager instance;
         private void Awake()
         {
-            inventory = FindObjectOfType<Inventory>();
+            inventory = FindObjectOfType<InventoryManager>();
             if (instance == null)
             {
                 instance = this;
@@ -21,10 +22,10 @@ namespace SurvivalGame
                 Destroy(gameObject);
             }
         }
+
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            inventory.InitializeInventoryUI();
         }
     }
 }

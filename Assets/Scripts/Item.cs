@@ -3,15 +3,28 @@ using UnityEngine;
 
 namespace SurvivalGame
 {
-    public class Item : MonoBehaviour
+    public class Item : MonoBehaviour, ItemObject
     {
-        public Sprite imgSprite_ = null;
-        public string name_ = "";    
-        public DisplayMessage message;  
+        [Header("Drops")]
+        public ItemUI itemUI;
+        [Header("Settings")]
+        public DisplayMessage message; 
 
         private void Start()
         {
-            message.SetMessageText(name_);
+            if(message != null)
+                message.SetMessageText(itemUI.itemName);
+        }
+
+        public void CollectItem()
+        {
+            GameManager.instance.inventory.AddItemToItems(itemUI);
+            GameManager.instance.inventory.UpdateInventoryUI();
+            if (GameManager.instance.inventory == null)
+            {
+                Debug.LogWarning("Inventory not found!");
+            }
+            Destroy(gameObject);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace SurvivalGame
     public class DisplayMessage : MonoBehaviour
     {
         [SerializeField] private string message;
-        [SerializeField] private TextMeshProUGUI messageText; 
+        public TextMeshProUGUI messageText; 
         private Camera Cam_;
         private void OnValidate()
         {
